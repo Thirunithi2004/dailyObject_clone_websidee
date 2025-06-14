@@ -23,7 +23,7 @@ All sections of the website are handcrafted, responsive, and lightweight. The pu
 ## 🚀 Live Website
 
 You can view the live deployed site here:  
-👉 **https://Thirunithi2004.github.io/dailyObject_clone_websitee/**
+👉 **https://github.com/Thirunithi2004/dailyObject_clone_websidee/**
 
 ---
 
