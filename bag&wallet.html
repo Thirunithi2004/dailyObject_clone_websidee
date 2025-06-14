@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bag&wallet</title>
+      <link rel="icon" href="https://play-lh.googleusercontent.com/UnMORG6TUKkNUvsdEQFPklD4wczWpTCPVJp-9yQGJecs2GatOGlZAxUiA36mFHj7Sg">
+
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      box-sizing: border-box;
+    }
+
+    #menu-container {
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      /* height: 90px; */
+    }
+
+    #menu-container + section {
+      margin-top: 105px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 30px;
+    }
+
+    .menu-item2,
+    .menu-item3 {
+      display: flex;
+      gap: 25px;
+    }
+
+    .menu-item2 a {
+      text-decoration: none;
+      color: green;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    #offer img {
+      width: 100%;
+      display: block;
+    }
+    .column img{
+      width: 250px;
+      height: 250px;
+    }
+    .column a{
+      display: block;
+      margin-top: 15px;
+    }
+    .dropdown {
+            position: absolute;
+            top: 70px;
+            left:0;
+            background: white;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            justify-content: space-around;
+        }
+        .dropdown{
+          display: none;
+        }
+        .menu-item2>div:hover .dropdown {
+            display: flex;
+           
+        }
+         .menu-item2>div>a:hover{
+            color: rgb(75, 72, 72);
+           
+        }
+       .column a:hover {
+            color: rgb(40, 42, 130);
+        }
+      
+        #green-font{
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            font-size: large;
+            color: green;
+        }
+         /* footer */
+        footer{
+            background-color: black;
+            color: white;
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /*  */
+            .scroll-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+            }
+            .scroll-top img.dark-green-arrow {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0.6) contrast(1.2) saturate(0.8);
+            cursor: pointer;
+            }
+            /* bags */
+            .bags-item a img{
+              border-radius: 50%;
+            }
+            .bags-item a img:hover{
+              transform: scale(1.1);
+            }
+            .bags-item a p{
+              font-weight: bolder;
+              color: black;
+              margin-top: 15px;
+             
+            }
+            .bags-item a p:hover{
+              color: blue;
+            }
+             .bags-item a p:active{
+             color: black;
+            }
+            .bags-item  {
+              text-align: center;
+              text-decoration: none;
+              display: flex;
+              justify-content:center;
+              gap: 100px;
+              margin: 70px;
+            }
+            /* last text section */
+        #text{
+          background-color: #fafafa;
+          padding: 20px;
+          text-align: justify;
+        }
+        
+    </style>
+</head>
+<body>
+    
+
+<header id="menu-container">
+    <nav class="menu-item">
+      <div class="menu-item1">
+        <a href="index.html">
+          <img
+            src="https://i0.wp.com/cdn.askmeoffers.com/wp-content/uploads/2023/11/15195533/dailyobjects-coupon-codes-dailyobjects-offers-deals.png?ssl=1"
+            alt="logo"
+            width="100px"
+          />
+        </a>
+      </div>
+      <div class="menu-item2">
+        <!-- wallet nav section -->
+        <div>
+          <a  href="bag&wallet.html">BAG & WALLETS</a> 
+                  
+        </div>
+
+        <!-- collection nav section -->
+        <div>
+           <a href="collection.html">COLLECTION</a>
+             <div class="dropdown">
+              <div class="column">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtvoPYZfBtxkSxjSuvXTw6aQsyqby1W7Y_lg&s" alt="Best Sellers">
+                  <h4>Best Sellers</h4>
+                  <a href="#">Top-Rated Bags</a>
+                  <a href="#">Customer Favorites</a>
+                  <a href="#">Weekly Highlights</a>
+                  <a href="#">View All +</a>
+              </div>
+              <div class="column">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFGOoM73WlymWrPOXzPfZWszJEqothHuHEzoa7ADOIvcWyEi7EZmV1W4-DeJTWnPaOU9U&usqp=CAU" alt="Trending Now">
+                  <h4>Trending Now</h4>
+                  <a href="#">Viral Picks</a>
+                  <a href="#">Most Loved Styles</a>
+                  <a href="#">Editor's Choice</a>
+                  <a href="#">View All +</a>
+              </div>
+              <div class="column">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnwaKHJc-B1Hd4_4AcF85HXBA3Dxjrel2_vg&s">
+                  <h4>Minimal Collection</h4>
+                  <a href="#">Subtle Tones</a>
+                  <a href="#">Sleek Designs</a>
+                  <a href="#">Office-Ready Bags</a>
+                  <a href="#">View All +</a>
+              </div>
+              <div class="column">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDrfyctnLHynLKGKZLVAO_4uGn-XQoXDzaxQ&s" alt="Vibrant Picks">
+                  <h4>Vibrant Picks</h4>
+                  <a href="#">Color Pop Bags</a>
+                  <a href="#">Statement Pieces</a>
+                  <a href="#">Printed Styles</a>
+                  <a href="#">View All +</a>
+              </div>
+          </div>
+      
+        </div>
+
+       <!-- gift nav section -->
+         <div>
+             <a href="gifing.html">GIFTING</a>
+            <div class="dropdown">
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZcHuFOyMtFacuVx0CQUxBcDml1iJikL3J-A&s" alt="Gifts for Her">
+        <h4>Gifts for Her</h4>
+        <a href="#">Tote Bags</a>
+        <a href="#">Clutches</a>
+        <a href="#">Stylish Wallets</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC0LXsj-63KieeylPUc2VjgI96CCxFRb87cw&s" alt="Gifts for Him">
+        <h4>Gifts for Him</h4>
+        <a href="#">Minimal Wallets</a>
+        <a href="#">Messenger Bags</a>
+        <a href="#">Card Holders</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6DQfc6X38O53Tf8Yx25JBhHe7ddMHVJ-_Sg&s" alt="Under ₹999">
+        <h4>Gifts Under ₹999</h4>
+        <a href="#">Small Wallets</a>
+        <a href="#">Mini Bags</a>
+        <a href="#">Travel Pouches</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="data:image/jpeg;base64,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" alt="Occasion-based">
+        <h4>Occasion-based</h4>
+        <a href="#">Birthday Gifts</a>
+        <a href="#">Anniversary Gifts</a>
+        <a href="#">Corporate Gifts</a>
+        <a href="#">View All +</a>
+    </div>
+</div>
+      
+        </div>
+      
+        <!--  work essentials-->
+          <div>
+             <a href="work.html">WORK ESSENTIALS</a>
+               <div class="dropdown">
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGKyI73kUb7ZkIJ_SSlAdE27qXT9r76SdwzA&s" alt="Laptop Bags">
+        <h4>Laptop Bags</h4>
+        <a href="#">Work Backpacks</a>
+        <a href="#">Zipper Sleeves</a>
+        <a href="#">Office Laptop Bags</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd7DaQqDsJgWIoByL2sli2z86YhpZeC5onHQ&s" alt="Office Totes">
+        <h4>Office Totes</h4>
+        <a href="#">Structured Totes</a>
+        <a href="#">Everyday Totes</a>
+        <a href="#">Organizer Bags</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgCGor-6ei38MgPelBC_DpBJnQ3H8UaqH98A&s" alt="Commute Essentials">
+        <h4>Commute Essentials</h4>
+        <a href="#">Sling Bags</a>
+        <a href="#">Foldable Bags</a>
+        <a href="#">Compact Carriers</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_t85M093uGpCV6A1Jm5cLL-M62jHjEXJLtA&s" alt="Organisers">
+        <h4>Organisers</h4>
+        <a href="#">Tech Organisers</a>
+        <a href="#">Cord Pouches</a>
+        <a href="#">Document Holders</a>
+        <a href="#">View All +</a>
+    </div>
+</div>
+  
+        </div>
+
+        <!-- new arrival -->
+         <div>
+              <a href="new.html">NEW ARRIVAL</a>
+                 <div class="dropdown">
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvgqaobhdHO9V4kc9CUi2ifXU9It2IPQNu8A&s" alt="New Backpacks">
+        <h4>New Backpacks</h4>
+        <a href="#">Travel Backpacks</a>
+        <a href="#">Laptop Backpacks</a>
+        <a href="#">Foldable Backpacks</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQgA1zYuz6V4MeGd6A_A_3oINj5kS9F-hvBg&s" alt="New Handbags">
+        <h4>New Handbags</h4>
+        <a href="#">Tote Bags</a>
+        <a href="#">Mini Handbags</a>
+        <a href="#">Trendy Slings</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrF6l_Sduq8LKRJMubmwucFqwZYNYyopHNr1NV1bXsUJ43oW4WsyG-nHZkEhx5lMvYXc&usqp=CAU" alt="Wallet Releases">
+        <h4>Wallet Releases</h4>
+        <a href="#">Bifold Wallets</a>
+        <a href="#">Zip Wallets</a>
+        <a href="#">Travel Wallets</a>
+        <a href="#">View All +</a>
+    </div>
+    <div class="column">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScaueiAiVElfvU7bIsiYc5-aMzOQrYTYysZlb5udK2CmOZ63H3d4hPcYIadYpE0mjSNVk&usqp=CAU" alt="Limited Editions">
+        <h4>Limited Editions</h4>
+        <a href="#">Seasonal Prints</a>
+        <a href="#">Designer Collabs</a>
+        <a href="#">Exclusive Drops</a>
+        <a href="#">View All +</a>
+    </div>
+</div>
+ 
+        </div>
+      </div>
+      <div class="menu-item3">
+        <a href="shop_bag.html">
+          <img
+            src="https://images.dailyobjects.com/marche/icons/Bag.png?tr=cm-pad_resize,v-3,w-16,h-16,dpr-1" alt="shopping bag" width="20px"/>
+        </a>
+        <a href="account.html">
+          <img
+            src="https://images.dailyobjects.com/marche/icons/Profile.png?tr=cm-pad_resize,v-3,w-16,h-16,dpr-1" alt="account"width="20px" />
+        </a>
+        <a href="search.html">
+          <img src="https://images.dailyobjects.com/marche/icons/Search.png?tr=cm-pad_resize,v-3,w-16,h-16,dpr-1" alt="search"width="20px" />
+        </a>
+      </div>
+    </nav>
+  </header>
+<!-- offer img -->
+  <section id="offer">
+    <img
+      src="https://images.dailyobjects.com/marche/assets/images/other-2/crsbody-Offer-Strip-5-01.jpg?tr=cm-pad_crop,v-3,w-1536,dpr-1"
+      alt="offer image"
+    />
+  </section>
+  <section id="green-font">
+    <h2>BAGS & WALLETS</h2>
+  </section>
+  <hr>
+  <!-- SECTION1 -->
+<section class="bags-cointainer">
+  <div class="bags-item">
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other-2/CP-desktop.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="TOTE BAGS">
+      <p>TOTE BAGS</p>
+    </a>
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other/new-crossbody-bags.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="CROSSBODY BAGS">
+      <p>CROSSBODY BAGS</p>
+    </a>
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other-2/Category-page-bags-and-wallets-backpacks.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="BACKPACKS">
+      <p>BACKPACKS</p>
+    </a>
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other-2/Category-page-bags-and-wallets-messenger-bags.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="MESSENGER">
+      <p>MESSENGER BAGS</p>
+    </a>
+  </div>
+  <!-- SECTION2 -->
+   <div class="bags-item">
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other-2/Category-page-bags-and-wallets-phone-bag.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="PHONE BAGS">
+      <p>PHONE BAGS</p>
+    </a>
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other/new-wallets.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="WALLETS">
+      <p>WALLETS</p>
+    </a>
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other-2/Category-page-bags-and-wallets-duffle-bags.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="DUFFLE BAGS">
+      <p>DUFFLE BAGS</p>
+    </a>
+    <a href="#">
+      <img src="https://images.dailyobjects.com/marche/assets/images/other/new-pouches.jpg?tr=cm-pad_crop,v-3,w-160,h-160,dpr-1" alt="POUCHES">
+      <p>POUCHES</p>
+    </a>
+  </div>
+ 
+</section>
+
+<section id="text">
+  <p>With our incredibly versatile range of items and styles, you have many options available for you to choose. Whether it is an everyday go-to bag or premium sleeves and cases, Daily Objects has everything you need.</p>
+  <br><br>
+  <p>Going out of town or out of the country? Get our stylish passport wallet to keep all your travel related documents safe in one place. If you're a world traveller with more than one passport or you just want to keep your spouse or significant other's passport safe in one place with yours, check out passport organiser wallet. It's got enough space for two passports, all your travel documents and even a notebook. You can even tuck your phone into the back pocket and keep it all safe and stylish. So check out our amazing bag and sleeves!</p>
+  <br><br>
+  <p>Our tote bags are available in three styles to suit every need and every occasion. Need something simple and stylish to just run to the shops with, so you can ditch the plastic bags and go eco-friendly in style? Our Baesic tote bags are perfect for you- simple, stylish and strong totes that are as easy on your pocket as they are on the eye. Want something with secure storage for your phone and valuables? Have a look at our crossbody bags category. Need something that can be your go-to everyday tote that you can take everywhere? Go for our classic tote. Got a lot more stuff than usual to carry? Get our Fatty Tote; it's got all the space you'll ever need and then some more.</p>
+</section>
+  <!-- scroll bar -->
+   <div class="scroll-top" id="scrollTopBtn">
+    <a href="#">
+      <img
+        src="https://cdn0.iconfinder.com/data/icons/flat-round-arrow-arrow-head/512/Green_Arrow_Top-512.png"
+        alt="Scroll to top"
+        class="dark-green-arrow"
+      />
+    </a>
+  </div>
+
+ <!--  footer section-->
+   <footer>
+    <p>© 2012 - 2025 Firki Wholesale Pvt. Ltd.</p>
+    <p>Terms of use | Privacy policy</p>
+   </footer>
+   <script>
+
+    //  arrow section
+    const btn = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+        btn.style.display = window.scrollY > 100 ? "block" : "none";
+        });
+        btn.addEventListener("click", e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+   </script>
+</body>
+</html>

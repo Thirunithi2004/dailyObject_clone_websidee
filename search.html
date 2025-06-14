@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Search Page</title>
+    <link rel="icon" href="https://play-lh.googleusercontent.com/UnMORG6TUKkNUvsdEQFPklD4wczWpTCPVJp-9yQGJecs2GatOGlZAxUiA36mFHj7Sg">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-container input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .search-container button {
+      padding: 12px 20px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 8px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .product h4 {
+      margin: 10px 0 5px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search for Bags and Wallets</h1>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search bags, wallets..." />
+    <button onclick="searchProducts()">Search</button>
+  </div>
+
+  <div class="results" id="resultsContainer">
+    <!-- Products will appear here -->
+  </div>
+
+  <script>
+    const products = [
+      { name: 'Leather Handbag', image: 'https://images.dailyobjects.com/marche/product-images/1203/dailyobjects-tan-sol-box-shoulder-bag-images/DailyObjects-Tan-Sol-Box-Shoulder-Bag.png?tr=cm-pad_resize,v-3,w-383,h-648,dpr-2' },
+      { name: 'Classic Wallet', image: 'data:image/webp;base64,UklGRvQEAABXRUJQVlA4IOgEAAAQHQCdASqOAMkAPj0ci0SiIaETmTycIAPEtLdl02hC6kxfEJAJujgSJXd3XLDLujF6kHihPp06FPsdA/LhQ2tthFae//4vDPZBvV/7AHY+fHWMREymUcxnrOyzMgIW40ULM0vbzIMUBOw0CgT4GL1sXtAQgkYOgK3VxExwmdbHFfImc1iIIxBDQH0GbnS1qS845VH9SuFDzgq+l68EqmFrhng+rPxohWZ9xvAs6yIRNQU//2SRa3Un8RPFUA+fKnbsfbtERR/Cbg+4EN4dB+/VGuy58SHwyeTsg8czwPSgUeunQn06dCn2OgflwobW2yVAAP7/mzQAAAAAHn+fWPdf0uH5/67viWmP7f/7/QwgOw3ue2NydrA/S4U6PDHbekZokNYOdC6xb9IZnEUqlGq7NcGqO04g9RgevO6aepZFh/ZZun/JzdQi/4hb4GCW7dLXc7nFE58qLp7P7nVtHfDuGXRXN5yIgZeIEkO193klNEIXmVOyRydLH4Yz+/CISGNEv8TPueAEKLMWwL4ihEdM15dkwmXxcHMR+57g/VoSwuu3XOOqRNgShPSDu6kz94EidGaWUoX2wAecUp3l7UWmabcA+qXskKeWX3sS2QOz7mBzPJqstyVkkSNlWSy5W2bAJ82pKgitYeIQNr1yMeC/os+aiDqHqXboFQ/f6QAFgAJjNZPCrU0qphUJeJC32rbBneC2LQblovSpuiyxZvf21ONq7VFnYRAApQdatle9xeb/6IhQLG2jheMZJqRteeH//EsBp/8CNoHV78RxqrdF0LnEDwnf/GokO5K9QKE8cQtnkxsPeJQlwjNVLH692xfI7GV7poyBZPDKotsLt1CsIlIQWgDvTc0LBOalP0+ixPJBW9mEecg9yBmoeVMIHXHFDeB+DaHr+/mtDUdKXPZZ5TnMzh/LyCzcIx+j/E92qKEVqhbOaLrqX9C2nfhuFenUpcGZUuze/OVGeKrtPmwuObvPzT9SOkbKmyvN+8bYNU3XjcBWGCNShLqQf3aHarRDW/+kwDZ6zJ+FE9ogVpyxGz9sLXjGfbr6jehcD1Ylwr5uEktLnaShGrgJ3X3JHeZvq/EWaT7ZdcZY2sS7b991VtCr3SRAtmiI0JJW7DepKJPpDqdQVYQgVJJF8tVOEhkdJEGPhGeAiFffsw6Fx1ALKxcSB7GnFxnVlw6sPOL3sSavk71R2gH4pAJGdR3gwz/zfyPr9EHyJzlkV9ZJN32PJATgPG8+y/ji4WaCXKCDIQBDP/aLzwwz0I34eczCgbQ427T5eUUT1Xm+zlGwRqXRjTZ8noxlk6Dx7J3NEQvVg5PuVOdQUNBbCSFroUYfdK3HgJCBxzXc+w3MG4G9XA6UPphVmxXwal0+XUhUdGJVbow3ki7RXyVF4pkhYkIUILdwDAG3dNnlBauy08AAAlK9v1JAaBqmoITloOkijGGj0u2lsi/bGh4RjgGBJLKk2320TfPrfxxK0KZFKo5/JES9ORQv3J7duzLwJWk1FTDhe0c4DiNVpmMpBp/ETTmFjRy3UEmVY6QEuJViD4tdxWpnJstSa3l4Nf95lCznXaEq2C/l8bkqrJ4avg4k0QgCCpOKgfD2luL3LS2drVv9IeXraB5t/ifrL6o42wwlWbuqt7v8ktEWTeAg3W/K5SP3zEAAAAAAAAAAAA==' },
+      { name: 'Shoulder & Tote Bag', image: 'https://images.dailyobjects.com/marche/product-images/1204/dailyobjects-khaki-beige-buoy-tote-bag-images/DailyObjects-Khaki-Beige-Buoyant-Tote-Bag.png?tr=cm-pad_resize,v-3,w-383,h-648,dpr-2' },
+      { name: 'Shoulder & Clove Tote Bag', image: 'https://images.dailyobjects.com/marche/product-images/1204/all-clove-brown-all-time-tote-images/All-Clove-Brown-All-Time-Tote.png?tr=cm-pad_resize,v-3,w-383,h-648,dpr-2' },
+      { name: 'Shoulder Bag', image: 'https://images.dailyobjects.com/marche/product-images/1204/natural-white-olive-all-time-tote-images/Natural-White-Olive-All-Time-Tote-vw.png?tr=cm-pad_resize,v-3,w-383,h-648,dpr-2' },
+      { name: 'Travel Backpack', image: 'https://images.dailyobjects.com/marche/product-images/1201/forest-green-field-backpack-images/Forest-Green-Field-Backpack-vw.png?tr=cm-pad_resize,v-3,w-383,h-648,dpr-2' },
+      { name: 'Travel Backpack', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR1C8KVJ8I4AVu40tOwHZuA2-IwNtW70lhbayKrZ2j3yf5BsDE7FLokh_sm8aRlJj75QqexQ8zu8B8GfLhrbzCFshplb3iMndkuVOcd6y8Lhr-_hrAy6J6y2lx-9LBr0b2FJ9v7AZJTVA&usqp=CAc' },
+      { name: 'Travel Backpack', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ9wSksYw4NIvBXsLABERLjyYyPriIuha7VMtSEHUq6vBz89MsGm0FEaa9ekinO3h75p6fwfDXgPMhee4hgWn3yeOQ22ZJYU7m-hou4FswtCc83QmaYtuHdPOgq45W_g8KoKdmTcQPj6w4&usqp=CAc' },
+      { name: 'Mini Wallet', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTUKyHeA4zHblYEXdmCBQA15N4HYLA_slHXWGLzJdT-5pOvWDevgn0Yr0o4GcmLbaxx2X52wZsqDcAWTXrpWm_dOjFwKcLh5tuAnquFAIUoQRTTYQXAG4xf8V8jlkw690xN2oy_YrIBkw&usqp=CAc' },
+      { name: 'Mini Wallet', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTphrtlvXcRcp_f3i4Ojeo11e-trjNDTGIxTNstzg2eb9gijstJt1bN-J_lsdQ0SPq06SzHNXoqKuHGyuELV8LQn7wuWLcBLh8zrEpex95ZGLE81Ehkv_5sEa4L1_ydn9XPUS8nwUJiPw&usqp=CAc' },
+      { name: 'Mini Wallet', image: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRJx5y6AoK3ZtERg0jeSKT6THaGH9E5m7dcHW_fg3JtSvtEm-37TJAMNG2QdvtXvi4aN_bsVNmuxS_iAekjTECRry7sV8QINBpLNuHxKFH04oDkbfjL6zuQlkY&usqp=CAc' },
+      { name: 'Tote Bag', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQqHhscG5dtzucXXPu4MzpBGg-3l2LfQ790lDlL4aIts4dzkY-tXRiUCwIdkGHKRhGuK6-44V14O25FMHX3yGOQfRAtOoOmUvTHPQmqShPyJbx8mEsWO6znaCU' },
+      { name: 'Tote Bag', image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSU-3JX3C8UIbUqVlnMVaOSV2Mr_DXCrDgUa9iSJk8DbkI_TcilMloOrPMH-_t3-qptGEFbjtBr984q3sJUoZ9ijN9axDpjIGzbcFlcqFQzQvnTBgXfQjr3Rg' },
+      { name: 'Tote Bag', image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSUolLgHylUwahkmh-QBDyFDhGN5AklzvoQhrLaITyuLLLdy-fU2hXQKlTPJx6ved-9ZlXtekglvYq6HSTI76wBiVVhEs1yQXbwgRftzoOBcqiZDtvjRWmV9Q' },
+      { name: 'Laptop Bag', image: 'data:image/webp;base64,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' },
+      { name: 'Laptop Bag', image: 'https://images.dailyobjects.com/marche/product-images/1202/pivot-ambit-messenger-lagoon-images/Pivot-Ambit-Messenger-Lagoon-2.png?tr=cm-pad_resize,v-3,w-167,h-230,dpr-1' },   
+      { name: 'Laptop Bag', image: 'https://images.dailyobjects.com/marche/product-images/1202/pivot-meridian-convertible-briefpack-sand-images/Pivot-Meridian-Convertible-Briefpack-Sand-9.jpg?tr=cm-pad_crop,v-3,w-167,h-230,dpr-1' },
+      { name: 'Laptop Bag', image: 'https://images.dailyobjects.com/marche/product-images/1202/pivot-briefpack-coral-images/Pivot-briefPack-coral-2n.jpg?tr=cm-pad_crop,v-3,w-167,h-230,dpr-1' },
+
+
+    ];
+
+    function searchProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const results = products.filter(product => product.name.toLowerCase().includes(query));
+
+      const container = document.getElementById('resultsContainer');
+      container.innerHTML = '';
+
+      if (results.length === 0) {
+        container.innerHTML = '<p>No products found.</p>';
+        return;
+      }
+
+      results.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
+        productDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h4>${product.name}</h4>
+        `;
+        container.appendChild(productDiv);
+      });
+    }
+  </script>
+</body>
+</html>
